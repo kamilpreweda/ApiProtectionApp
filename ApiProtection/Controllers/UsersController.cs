@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApiProtection.Models;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace ApiProtection.Controllers;
@@ -23,8 +24,16 @@ public class UsersController : ControllerBase
 
     // POST api/<UsersController>
     [HttpPost]
-    public void Post([FromBody] string value)
+    public IActionResult Post([FromBody] UserModel user)
     {
+        if (ModelState.IsValid)
+        {
+            return Ok("The model was valid");
+        }
+        else
+        {
+            return BadRequest(ModelState);
+        }
     }
 
     // PUT api/<UsersController>/5
