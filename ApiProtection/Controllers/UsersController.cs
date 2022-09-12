@@ -21,7 +21,7 @@ public class UsersController : ControllerBase
     [ResponseCache(Duration = 20, Location = ResponseCacheLocation.Any, NoStore = false)]
     public string Get(int id)
     {
-        return "value";
+        return $"Random Number:{Random.Shared.Next(1, 101)} for id {id}";
     }
 
     // POST api/<UsersController>
