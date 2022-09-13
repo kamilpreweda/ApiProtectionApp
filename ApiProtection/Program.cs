@@ -1,3 +1,5 @@
+using AspNetCoreRateLimit;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddResponseCaching();
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
